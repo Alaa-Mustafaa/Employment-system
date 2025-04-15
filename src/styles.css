@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+:root{
+    --primary-color:#46cdcf;
+}
+
+.primary-color{
+    color: var(--primary-color);
+}
+
+#message-container{
+    transition: all 2s;
+    display: none;
+}
+
+#message{
+    background-color: rgba(0, 0, 0, 0.475);
+
+}
+
+/* End of Global Styles */

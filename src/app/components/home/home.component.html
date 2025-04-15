@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body class="bg-body-tertiary pb-4">
+    <!-- Main Content -->
+    <main>
+      <section class="container">
+        <!-- Title and search -->
+        <div class="d-flex justify-content-between align-items-center">
+          <!-- Title -->
+          <div>
+            <h1 class="pt-5 text-primary fs-2">List of Employees</h1>
+            <p class="text-muted pb-3">
+              You can view, edit or delete any of the employees.
+            </p>
+          </div>
+          <!-- End of Title -->
+
+          <!-- Search input -->
+          <div>
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search By Name"
+              aria-label="Search"
+              [(ngModel)]="SearchedName"
+            />
+            <p>{{ SearchedName }}</p>
+          </div>
+          <!-- End of Search input -->
+        </div>
+        <!-- End of Title and search -->
+        <!-- Table of Employees -->
+        <table class="table text-center shadow-sm rounded-5">
+          <thead class="bg-body-tertiary">
+            <tr>
+              <th scope="col" class="text-primary">ID</th>
+              <th scope="col">NAME</th>
+              <th scope="col">EMAIL</th>
+              <th scope="col">DEPARTEMENT</th>
+              <th scope="col">POSITION</th>
+              <th scope="col">SALARY</th>
+              <th scope="col">VIEW</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Loop to get all employees -->
+            <tr *ngFor="let employee of Employees | search : SearchedName | paginate: { itemsPerPage: 5, currentPage: page }">
+              <th scope="row" class="text-primary">{{ employee.id }}</th>
+              <td>{{ employee.name }}</td>
+              <td>{{ employee.email }}</td>
+              <td>{{ employee.department }}</td>
+              <td>{{ employee.position }}</td>
+              <td>{{ employee.salary }} EGP</td>
+              <td>
+                <a
+                  class="btn btn-outline-primary"
+                  [routerLink]="'/showOneEmployee/' + employee.id"
+                  >VIEW</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Pagination Controls --> 
+         <div class="text-center pt-3">
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+         </div>
+        <!-- End of Pagination Controls --> 
+
+        <!-- End of Table of Employees -->
+      </section>
+    </main>
+
+    <!-- End of Main Content -->
+
+    <script src="" async defer></script>
+  </body>
+</html>

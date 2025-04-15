@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body class="bg-body-tertiary">
+             <!-- Success Message -->
+             <section id="message-container">
+              <div class="position-fixed top-0 w-100 h-100  d-flex justify-content-center align-items-center text-center" id="message">
+                  <div class="bg-white p-5 rounded-5">
+                      <p class="fs-1 fw-bold py-3" id="message-body">Your Employee is deleted successfully</p>
+                      <a routerLink="/home" class="text-decoration-none text-primary">Go To Home</a>
+                  </div>      
+               </div>
+             </section>
+              <!-- End of Success Message -->
+
+        <!-- Show one Employee -->
+         <section class="container py-5 ">
+                  <!-- Table of Employee  -->
+                  <table class="table text-center shadow-sm rounded-5">
+                    <thead class="bg-body-tertiary">
+                      <tr>
+                        <th scope="col" class="text-primary">ID</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">DEPARTEMENT</th>
+                        <th scope="col">POSITION</th>
+                        <th scope="col">SALARY</th>
+                        <th scope="col">UPDATE</th>
+                        <th scope="col">DELETE</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="text-primary">{{Employee.id}}</th>
+                        <td>{{Employee.name}}</td>
+                        <td>{{Employee.email}}</td>
+                        <td>{{Employee.department}}</td>
+                        <td>{{Employee.position}}</td>
+                        <td>{{Employee.salary}}</td>
+                        <td>
+                          <button (click)="UpdateEmployee(Employee.id)" class="btn btn-primary">Update</button>
+                      </td>
+                        <td>
+                            <button (click)="deleteEmployee(Employee.id)" class="btn btn-danger">Delete</button>
+                        </td>
+                      </tr>
+                    
+                    </tbody>
+                  </table>
+                <!-- End of Table of Employee -->
+
+
+         </section>
+        <!-- End of Show one Employee -->
+
+        
+        <script src="" async defer></script>
+    </body>
+</html>
